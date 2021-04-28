@@ -1,0 +1,18 @@
+<h1><%= @restaurant.name.upcase %></H1>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+<p><%= @restaurant.category %></p>
+
+
+<p><strong>Reviews:</strong></p>
+<ul class="list-group">
+  <% @reviews.each do |review| %>
+    <li class="list-group-item">
+      <%= review.content %>
+      <%= review.rating %>/5
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to 'Index page', restaurants_path, class: "btn btn-primary" %></p><br>
+<p><%= link_to 'Add a review', new_restaurant_review_path(@restaurant), class: "btn btn-success" %></p><br>
